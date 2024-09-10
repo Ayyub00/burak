@@ -5,7 +5,14 @@ import express from "express";
  routerAdmin.get("/", restaurantController.goHome);
 
  routerAdmin.get("/login", restaurantController.getLogin);
+ routerAdmin
+   .get("/singup", restaurantController.getSignup)
+   .post("/signup", restaurantController.processSignup);
 
- routerAdmin.get("/singup", restaurantController.getSignup);
+ /**  Product */
+
+ /**  User */
+
+ routerAdmin.get("/singup", restaurantController.getSignup).post("/signup", restaurantController.processSignup);
 
  export default routerAdmin;
