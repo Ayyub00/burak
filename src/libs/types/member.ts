@@ -29,4 +29,7 @@ import { ObjectId } from "mongoose";
  }
 
 
- console.log("Passed here!");
+ export interface LoginInput {
+    memberNick: string;
+    memberPassword: string;
+ }
