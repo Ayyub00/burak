@@ -25,7 +25,7 @@ import { LoginInput, Member, MemberInput } from '../libs/types/member';
      } catch (err) {
        console.log("Error, signup:", err);
        if(err instanceof Errors) res.status (err.code).json(err);
-       else res.status(Errors.standard.code).json (Errors.standard);
+       else res.status(Errors.standart.code).json (Errors.standart);
       // res.json({});
      }
    };
@@ -42,7 +42,7 @@ import { LoginInput, Member, MemberInput } from '../libs/types/member';
      } catch (err) {
        console.log("Error, login:", err);
        if(err instanceof Errors) res.status (err.code).json(err);
-       else res.status(Errors.standard.code).json (Errors.standard);
+       else res.status(Errors.standart.code).json (Errors.standart);
       // res.json({});
      }
  };
