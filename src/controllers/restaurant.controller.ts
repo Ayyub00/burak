@@ -5,7 +5,9 @@ import  MemberService from "../models/Member.service";
 import { LoginInput, MemberInput } from "../libs/types/member";
  import { MemberType } from "../libs/enums/member.enum";
 
-const restaurantController: T = {};
+ const memberService = new MemberService();
+ const restaurantController: T = {};
+
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
 
@@ -20,6 +22,15 @@ restaurantController.goHome = (req: Request, res: Response) => {
   }
 };
 
+restaurantController.getSignup = (req: Request, res: Response) => {
+  try {
+    console.log("goSingup");
+    res.send("Signup Page");
+  } catch (err) {
+    console.log("Error, Signup:", err);
+  }
+};
+
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
@@ -29,10 +40,17 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.getSignup = (req: Request, res: Response) => {
+restaurantController.processSignup = async (req: Request, res: Response) => {
   try {
-    console.log("getSignup");
-    res.send("Signup Page");
+    console.log("processSignup");
+
+       const newMember: MemberInput = req.body;
+       newMember.memberType = MemberType.RESTUARANT;
+       const result = await memberService.processSignup(newMember);
+
+   //TODO: SESSIONS AUTHENTICATION
+
+       res.send(result);
   } catch (err) {
     console.log("Error, getSignup:", err);
     res.send(err);
@@ -49,9 +67,9 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
      const result = await memberService.processLogin(input);
 
      res.send(result);
-
   } catch (err) {
-    console.log("Error, processLogin:", err);
+    console.log("Error, processSignup:", err);
+       res.send(err);
   }
 };
 
@@ -63,8 +81,9 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTUARANT;
 
-    const memberService = new MemberService();
     const result = await memberService.processSignup(newMember);
+
+    //TODO: SESSIONS AUTHENTICATION
 
     res.send(result);
   } catch (err) {

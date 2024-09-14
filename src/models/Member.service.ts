@@ -12,6 +12,71 @@ class MemberService {
       this.memberModel = MemberModel;
 }
 
+// *SPA */
+
+  public async signup(input: MemberInput): Promise<Member> {
+     // Parolni hash qilish
+     const saltRounds = 10; // Salt uchun tavsiya etilgan qiymat
+     const salt = await bcrypt.genSalt(saltRounds);
+     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
+
+   try {
+     const result = await this.memberModel.create(input);
+     result.memberPassword = "";  // Parolni javobdan olib tashlash
+     return result.toJSON() as Member;// JSON formatida qaytarish
+   } catch (err) {
+     console.error("Error , model:signup ", err);
+     throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
+   }
+ }
+
+ public async login(input: LoginInput): Promise<Member | null> {
+   //TODO: consider member status later 
+
+   const member = await this.memberModel
+     .findOne(
+       { memberNick: input.memberNick },        
+       {  memberNick: 1, memberPassword: 1 }
+       )
+     .lean() // Engil obyektni qaytarish
+     .exec();
+
+     // Agar member topilmasa, xato qaytariladi
+   if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+
+    // Parolni solishtirish
+   const isMatch = await bcrypt.compare
+   (input.memberPassword, 
+     member.memberPassword
+     );
+
+
+     if (!isMatch){
+        throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
+       }
+
+ // Member topilgan bo'lsa, uni qaytarish
+      return await this.memberModel.findById(member._id).lean().exec();
+ }
+
+
+
+
+ /**SSR */
+
+ /**class MemberService {
+   processSignup(newMember: MemberInput) {
+     throw new Error('Method not implemented.');
+   }
+   processLogin(input: LoginInput) {
+     throw new Error('Method not implemented.');
+   }
+   private readonly memberModel;
+   constructor() {
+     this.memberModel = MemberModel;
+   }*/
+
+
 public async processSignup(input: MemberInput): Promise<Member> {
   const exist = await this.memberModel
     .findOne({ memberType: MemberType.RESTUARANT })

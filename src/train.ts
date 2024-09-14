@@ -68,6 +68,16 @@ function getPositive(a: number[]): string {
 }
 
 
+/*
+Traditional FD => SSR => EJS
+Modern FD      => SPA  = REACT 
+
+
+
+*/
+
+
+
 
 
 console.log(getPositive([1, -4, 2, 1]));

@@ -8,4 +8,9 @@ import express from "express";
 
 //  router.get("/singup", memberController.getSignup);
 
+
+router.post("/login", memberController.login);
+
+router.post("/signup", memberController.signup );
+
  export default router;
