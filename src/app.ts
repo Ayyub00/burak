@@ -9,7 +9,7 @@ import express from "express";
  /** 1 - ENTRENCE **/
  const app = express();
  console.log("__dirname:", __dirname);
- app.use(express.static(path.join(__dirname, "public")));
+ app.use(express.static(path.join(__dirname, "public"))); // static, use, express- bular methods, public folderni tashqi olip chiqish
  app.use(express.urlencoded({ extended: true }));
  app.use(express.json());
  app.use(morgan(MORGAN_FORMAT));

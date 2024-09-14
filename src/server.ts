@@ -1,18 +1,3 @@
-//  console.log("EXUCUTED");
-
-// import moment from "moment";
-
-// const currentTime = moment().format("YYYY MM DD");
-// console.log(currentTime);
-
-
-//  const person: string = "MARTIN";
-//  const count: number = 100;
-
-// Architectural pattern: MVC, Dependency Injection, MVP
-
-// Design pattern: Middleware, Decotar
-
 
 import dotenv from "dotenv";
  dotenv.config();
@@ -26,6 +11,8 @@ mongoose
     console.log("MongoDB connection succeed");
     const PORT = process.env.PORT ?? 3003;
     app.listen(PORT, function () {
+      console.info(`The server is running successfully  on port: ${PORT}`);
+      console.info(`Admin project on http://localhost:${PORT}/admin \n`);
         console.log(`The server is running successfully on port: ${PORT}`);
       });
   })
