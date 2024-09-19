@@ -16,8 +16,8 @@ class MemberService {
 
   public async signup(input: MemberInput): Promise<Member> {
      // Parolni hash qilish
-     const saltRounds = 10; // Salt uchun tavsiya etilgan qiymat
-     const salt = await bcrypt.genSalt(saltRounds);
+     
+     const salt = await bcrypt.genSalt();
      input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
    try {
