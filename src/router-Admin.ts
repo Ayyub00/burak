@@ -7,7 +7,8 @@ import express from "express";
  routerAdmin.get("/login", restaurantController.getLogin).post("/login", restaurantController.processLogin);
  routerAdmin
    .get("/singup", restaurantController.getSignup).post("/signup", restaurantController.processSignup);
-   routerAdmin.get("/click-me", restaurantController.checkAuthSession);
+   routerAdmin.get("/logout", restaurantController.logout);
+routerAdmin.get("/check-me", restaurantController.checkAuthSession);
  /**  Product */
 
  /**  User */

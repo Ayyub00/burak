@@ -4,7 +4,7 @@ import { T } from "../libs/types/common";
 import  MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
  import { MemberType } from "../libs/enums/member.enum";
- import { Message } from "../libs/Errors";
+ import Errors, { Message } from "../libs/Errors";
 
  const memberService = new MemberService();
  const restaurantController: T = {};
@@ -23,6 +23,7 @@ import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
      // send | json | redirect | end | render
   } catch (err) {
     console.log("Error, goHome:", err);
+    res.redirect("/admin");
   }
 };
 
@@ -41,6 +42,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     res.render("login");
   } catch (err) {
     console.log("Error, getLogin:", err);
+    res.redirect("/admin");
   }
 };
 
@@ -58,6 +60,11 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
        });
   } catch (err) {
     console.log("Error, processSignup:", err);
+    const message =
+    err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+  res.send(
+    <script> alert("${message}"); window.location.replace('admin/signup') </script>
+  );
     res.send(err);
   }
 };
@@ -80,6 +87,23 @@ restaurantController.processLogin = async (
   } catch (err) {
     console.log("Error, processSignup:", err);
        res.send(err);
+       const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+    res.send(
+      <script> alert("${message}"); window.location.replace('admin/login') </script>
+    );
+  }
+};
+
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+  try {
+    console.log("logout");
+    req.session.destroy(function () {
+      res.redirect("/admin");
+    });
+  } catch (err) {
+    console.log("Error, logout:", err);
+    res.redirect("/admin");
   }
 };
 restaurantController.checkAuthSession = async (
