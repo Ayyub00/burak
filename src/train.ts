@@ -1,17 +1,37 @@
-//task-J
-
-function findWord(getWord: string) {
-  const words = getWord.split(" ");
-  let no = "";
-  words.forEach((ele) => {
-    if (ele.length > no.length) {
-      no = ele;
+function unliFind(words: string): number {
+  const getWord: string[] = words.split("");
+  let count: number = 0;
+  for (let i = 0; i < getWord.length; i++) {
+    if (
+      getWord[i] === "i" ||
+      getWord[i] === "a" ||
+      getWord[i] === "u" ||
+      getWord[i] === "o" ||
+      getWord[i] === "e" ||
+      getWord[i] === "o'"
+    ) {
+      count++;
     }
-  });
-  return no;
+    count;
+  }
+  return count;
 }
-const word = "I wanna go to Burkina-Faso!";
-console.log(findWord(word));
+console.log(unliFind("success"));
+
+// //task-J
+
+// function findWord(getWord: string) {
+//   const words = getWord.split(" ");
+//   let no = "";
+//   words.forEach((ele) => {
+//     if (ele.length > no.length) {
+//       no = ele;
+//     }
+//   });
+//   return no;
+// }
+// const word = "I wanna go to Burkina-Faso!";
+// console.log(findWord(word));
 
 // // TASK - I
 // function findMostFrequentNumber(numberArr: number[]) {
