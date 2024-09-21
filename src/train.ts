@@ -1,23 +1,35 @@
-// Tack K
-function unliFind(words: string): number {
-  const getWord: string[] = words.split("");
-  let count: number = 0;
-  for (let i = 0; i < getWord.length; i++) {
-    if (
-      getWord[i] === "i" ||
-      getWord[i] === "a" ||
-      getWord[i] === "u" ||
-      getWord[i] === "o" ||
-      getWord[i] === "e" ||
-      getWord[i] === "o'"
-    ) {
-      count++;
-    }
-    count;
-  }
-  return count;
+// L-Task
+function reverseSentence(getWords: string) {
+  const words = getWords.split(" ");
+  const revers = words.map((ele) => {
+    const word = ele.split("");
+    const result = word.reverse();
+    return result.join("");
+  });
+  return revers.join(" ");
 }
-console.log(unliFind("success"));
+console.log(reverseSentence("success"));
+
+// // Tack K
+// function unliFind(words: string): number {
+//   const getWord: string[] = words.split("");
+//   let count: number = 0;
+//   for (let i = 0; i < getWord.length; i++) {
+//     if (
+//       getWord[i] === "i" ||
+//       getWord[i] === "a" ||
+//       getWord[i] === "u" ||
+//       getWord[i] === "o" ||
+//       getWord[i] === "e" ||
+//       getWord[i] === "o'"
+//     ) {
+//       count++;
+//     }
+//     count;
+//   }
+//   return count;
+// }
+// console.log(unliFind("success"));
 
 // //task-J
 
