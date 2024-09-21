@@ -27,7 +27,7 @@ import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
   }
 };
 
-restaurantController.getSignup = (req: Request, res: Response) => {
+restaurantController.goSignup = (req: Request, res: Response) => {
   try {
     console.log("goSingup");
     res.render("signup");
@@ -36,7 +36,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.getLogin = (req: Request, res: Response) => {
+restaurantController.goLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
     res.render("login");
@@ -106,7 +106,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
     res.redirect("/admin");
   }
 };
-restaurantController.checkAuthSession = async (
+restaurantController.checkMe = async (
   req: AdminRequest,
   res: Response
 ) => {

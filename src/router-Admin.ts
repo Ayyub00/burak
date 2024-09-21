@@ -4,6 +4,7 @@ import restaurantController from "./controllers/restaurant.controller";
 import productController from "./controllers/product.controller";
 import makeUploader from "./libs/utiles/uploader";
 /** RESTAURANT **/
+
 routerAdmin.get("/", restaurantController.goHome);
 
 routerAdmin
