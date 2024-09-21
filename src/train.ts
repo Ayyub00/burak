@@ -110,7 +110,13 @@ Modern FD      => SPA  = REACT
 
 
 
-*/
+
+
+// // validation: 
+// backend, 
+// frontend,
+//  databse,
+//   type
 
 
 

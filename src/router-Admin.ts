@@ -24,6 +24,7 @@ routerAdmin
 // routerAdmin.post("/product/create", productController.createNewProduct);
 // routerAdmin.post("/product/:id", productController.updateChosenProduct);
 
+
 /** PRODUCT **/
 routerAdmin.get(
    "/product/all",
