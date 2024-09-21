@@ -2,20 +2,29 @@ import express from "express";
  const routerAdmin = express.Router();
  import restaurantController from "./controllers/restaurant.controller";
  import productController from "./controllers/product.controller";
+ import makeUploader from "./libs/utiles/uploader";
 
- routerAdmin.get("/", restaurantController.goHome);
+/** RESTAURANT **/
+routerAdmin.get("/", restaurantController.goHome);
 
- routerAdmin.get("/login", restaurantController.getLogin).post("/login", restaurantController.processLogin);
- routerAdmin
-   .get("/singup", restaurantController.getSignup).post("/signup", restaurantController.processSignup);
-   routerAdmin.get("/logout", restaurantController.logout);
-routerAdmin.get("/check-me", restaurantController.checkAuthSession);
- /**  Product */
+routerAdmin
+  .get("/login", restaurantController.goLogin)
+  .post("/login", restaurantController.processLogin);
+
+routerAdmin
+  .get("/signup", restaurantController.goSignup)
+  .post("/signup", restaurantController.processSignup);
+  .post(
+    "/signup",
+    makeUploader("members").single("memberImage"),
+    restaurantController.processSignup
+  );
 
 //  routerAdmin.get("/product/all", productController.getAllProducts);
 // routerAdmin.post("/product/create", productController.createNewProduct);
 // routerAdmin.post("/product/:id", productController.updateChosenProduct);
 
+/** PRODUCT **/
 routerAdmin.get(
    "/product/all",
    restaurantController.verifyRestaurant,
@@ -24,6 +33,8 @@ routerAdmin.get(
  routerAdmin.post(
    "/product/create",
    restaurantController.verifyRestaurant,
+   // uploadProductImage.single("productImage"),
+   makeUploader("products").single("productImage"),
    productController.createNewProduct
  );
  routerAdmin.post(
