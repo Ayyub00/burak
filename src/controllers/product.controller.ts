@@ -43,10 +43,15 @@ productController.createNewProduct = async (
   );
   }
 };
-productController.updateChosenProduct = (req: Request, res: Response) => {
+productController.updateChosenProduct = async (req: Request, res: Response) => {
   try {
     console.log("updateChosenProduct");
-    res.send("updateChosenProduct");
+    
+    const id = req.params.id;
+    console.log("id:", id);
+    const result = await productService.updateChosenProduct(id, req.body);
+    res.status(HttpCode.OK).json({ data: result });
+
   } catch (err) {
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);

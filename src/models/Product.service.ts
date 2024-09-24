@@ -2,6 +2,7 @@ import Errors, { Message } from "../libs/Errors";
 import { Product, ProductInput } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
 import { HttpCode } from "../libs/Errors";
+import { shapeIntoMongooseObjectId } from "../libs/types/config";
 
 class ProductSevice {
     private readonly productModel;
@@ -18,6 +19,21 @@ class ProductSevice {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }
+
+  public async updateChosenProduct(
+    id: string,
+    input: ProductInput
+  ): Promise<Product> {
+    id = shapeIntoMongooseObjectId(id);
+    const result = await this.productModel.findOneAndUpdate(
+      { _id: id },
+      input,
+      { new: true }
+    );
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+    return result;
+  }
+  
   }
 
   export default ProductSevice;
