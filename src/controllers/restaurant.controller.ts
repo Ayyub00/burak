@@ -2,9 +2,10 @@
 import { NextFunction, Request, Response } from "express";
 import { T } from "../libs/types/common";
 import  MemberService from "../models/Member.service";
-import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enum";
+import { AdminRequest, MemberInput } from "../libs/types/member";
+import { ProductInput } from "../libs/types/product";
 
 
  const memberService = new MemberService();
@@ -57,7 +58,7 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
 
        const newMember: MemberInput = req.body;
        newMember.memberType = MemberType.RESTUARANT;
-       newMember.memberImage = file?.path;
+       newMember.memberImage = file?.path.replace(/\\/g, "/");
 
        req.session.member = result;
        req.session.save(function () {
