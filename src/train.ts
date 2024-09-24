@@ -1,14 +1,35 @@
-// L-Task
-function reverseSentence(getWords: string) {
-  const words = getWords.split(" ");
-  const revers = words.map((ele) => {
-    const word = ele.split("");
-    const result = word.reverse();
-    return result.join("");
+// M-Task
+
+function getSquareNumbers(getNumbers: number[]) {
+  interface obj {
+    [key: string]: number;
+  }
+
+  const result: any = [];
+  const mapR = getNumbers.map((ele, index) => {
+    const Obj: obj = {};
+    let scuar: number = ele * getNumbers[index];
+    let num: number = ele;
+    let scu: number = scuar;
+    Obj.number = num;
+    Obj.scuare = scu;
+    return result.push(Obj);
   });
-  return revers.join(" ");
+  return result;
 }
-console.log(reverseSentence("success"));
+console.log(getSquareNumbers([1, 2, 3, 8]));
+
+// // L-Task
+// function reverseSentence(getWords: string) {
+//   const words = getWords.split(" ");
+//   const revers = words.map((ele) => {
+//     const word = ele.split("");
+//     const result = word.reverse();
+//     return result.join("");
+//   });
+//   return revers.join(" ");
+// }
+// console.log(reverseSentence("success"));
 
 // // Tack K
 // function unliFind(words: string): number {
@@ -99,21 +120,21 @@ console.log(reverseSentence("success"));
  // console.log(getDigits("m1312uihryu8qtryu123412312312jigaw8of"));
 
 // H2-TASK
-function getDigits(a: string): string {
-  let numbers: string[] = [];
-  for (let i = 0; i < a.length; i++) {
-    if (!isNaN(parseInt(a[i]))) {
-      numbers.push(a[i]);
-    }
-  }
-  return numbers.join("");
-}
+// function getDigits(a: string): string {
+//   let numbers: string[] = [];
+//   for (let i = 0; i < a.length; i++) {
+//     if (!isNaN(parseInt(a[i]))) {
+//       numbers.push(a[i]);
+//     }
+//   }
+//   return numbers.join("");
+// }
 
-// H-TASK
-function getPositive(a: number[]): string {
-  const positives = a.filter((num) => num > 0);
-  return positives.join("");
-}
+// // H-TASK
+// function getPositive(a: number[]): string {
+//   const positives = a.filter((num) => num > 0);
+//   return positives.join("");
+// }
 
 
 /*

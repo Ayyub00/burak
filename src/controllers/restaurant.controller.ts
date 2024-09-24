@@ -4,7 +4,7 @@ import { T } from "../libs/types/common";
 import  MemberService from "../models/Member.service";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enum";
-import { AdminRequest, MemberInput } from "../libs/types/member";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { ProductInput } from "../libs/types/product";
 
 
@@ -59,6 +59,7 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
        const newMember: MemberInput = req.body;
        newMember.memberType = MemberType.RESTUARANT;
        newMember.memberImage = file?.path.replace(/\\/g, "/");
+       const result = await memberService.processSignup(newMember);
 
        req.session.member = result;
        req.session.save(function () {
@@ -116,7 +117,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
 restaurantController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
-    const result = await memberServise.getUsers();
+    const result = await memberService.getUsers();
     res.render("users", { users: result });
   } catch (err) {
     console.log("Err getUsers:", err);
@@ -127,7 +128,7 @@ restaurantController.updateChosenUser = async (req: Request, res: Response) => {
   try {
     console.log("updateChosenUser");
     const input = req.body;
-    const result = await memberServise.updateChosenUser(input);
+    const result = await memberService.updateChosenUser(input);
     res.status(HttpCode.OK).json({ data: result });
   } catch (err) {
     console.log("Err updateChosenUser:", err);
