@@ -3,8 +3,9 @@ import { NextFunction, Request, Response } from "express";
 import { T } from "../libs/types/common";
 import  MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
- import { MemberType } from "../libs/enums/member.enum";
- import Errors, { Message } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
+import { MemberType } from "../libs/enums/member.enum";
+
 
  const memberService = new MemberService();
  const restaurantController: T = {};
@@ -50,13 +51,17 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
   try {
     console.log("processSignup");
 
+    const file = req.file;
+    if (!file)
+      throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
+
        const newMember: MemberInput = req.body;
        newMember.memberType = MemberType.RESTUARANT;
-       const result = await memberService.processSignup(newMember);
+       newMember.memberImage = file?.path;
 
        req.session.member = result;
        req.session.save(function () {
-         res.send(result);
+        res.redirect("/admin/product/all");
        });
   } catch (err) {
     console.log("Error, processSignup:", err);
@@ -82,7 +87,7 @@ restaurantController.processLogin = async (
 
      req.session.member = result;
      req.session.save(function () {
-       res.send(result);
+      res.redirect("/admin/product/all");
      });
   } catch (err) {
     console.log("Error, processSignup:", err);
@@ -126,7 +131,7 @@ restaurantController.verifyRestaurant = (
   res: Response,
   next: NextFunction
 ) => {
-  if (req.session.member?.memberType === MemberType.RESTUARANT) {
+  if (req.session?.member?.memberType === MemberType.RESTUARANT) {
     req.member = req.session.member;
     next();
   } else {

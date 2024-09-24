@@ -4,7 +4,7 @@ import Errors from "../libs/Errors";
 import ProductSevice from "../models/Product.service";
 //const productService = ProductSevice();
 const productController: T = {};
-productController.getAllProducts = (req: Request, res: Response) => {
+productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");
     res.render("products");
