@@ -49,6 +49,17 @@ routerAdmin.get(
 
  /**  User */
 
+ routerAdmin.get(
+  "/user/all",
+  restaurantController.verifyRestaurant,
+  restaurantController.getUsers
+);
+routerAdmin.post(
+  "/user/edit",
+  restaurantController.verifyRestaurant,
+  restaurantController.updateChosenUser
+);
+
  /* 
      traditional API
      Rest API

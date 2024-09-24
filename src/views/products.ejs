@@ -8,5 +8,10 @@
    <body>
      <div>PRODUCTS PAGE</div>
      <div><%=member.memberNick%></div>
+       <div>
+      <% products.map((value, key) => { %>
+      <p><%= value.productName %></p>
+      <% }) %>
+    </div>
    </body>
  </html>
