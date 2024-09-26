@@ -1,6 +1,6 @@
-// M-Task
+// // N-Task
 
-function palidron(string: string): boolean {
+function palindromCheck(string: string): boolean {
   const array: string[] = string.split("");
   const rever: string = array.reverse().join("");
   if (string !== rever) {
@@ -9,6 +9,7 @@ function palidron(string: string): boolean {
 
   return true;
 }
+console.log(palindromCheck("boy"));
 
 // // L-Task
 // function reverseSentence(getWords: string) {
