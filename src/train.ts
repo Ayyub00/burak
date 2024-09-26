@@ -1,23 +1,14 @@
 // M-Task
 
-function getSquareNumbers(getNumbers: number[]) {
-  interface obj {
-    [key: string]: number;
+function palidron(string: string): boolean {
+  const array: string[] = string.split("");
+  const rever: string = array.reverse().join("");
+  if (string !== rever) {
+    return false;
   }
 
-  const result: any = [];
-  const mapR = getNumbers.map((ele, index) => {
-    const Obj: obj = {};
-    let scuar: number = ele * getNumbers[index];
-    let num: number = ele;
-    let scu: number = scuar;
-    Obj.number = num;
-    Obj.scuare = scu;
-    return result.push(Obj);
-  });
-  return result;
+  return true;
 }
-console.log(getSquareNumbers([1, 2, 3, 8]));
 
 // // L-Task
 // function reverseSentence(getWords: string) {
