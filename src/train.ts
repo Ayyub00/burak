@@ -134,7 +134,11 @@ Traditional FD => SSR => EJS
 Modern FD      => SPA  = REACT 
 
 
-
+/* Requests:
+    traditional API (form POST)
+    Rest API	
+    GraphQL API
+ */
 
 
 // // validation: 
