@@ -51,6 +51,7 @@ restaurantController.goLogin = (req: Request, res: Response) => {
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processSignup");
+    console.log("req.body:", req.body);
 
     const file = req.file;
     if (!file)

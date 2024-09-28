@@ -1,15 +1,32 @@
-// // N-Task
-
-function palindromCheck(string: string): boolean {
-  const array: string[] = string.split("");
-  const rever: string = array.reverse().join("");
-  if (string !== rever) {
-    return false;
-  }
-
-  return true;
+// O-Task
+function calculateSumOfNumbers(getAny: any[]): number {
+  const numbers: number[] = [];
+  getAny.map((ele) => {
+    if (typeof ele !== "number") {
+      return ele;
+    }
+    numbers.push(ele);
+  });
+  const result: number = numbers.reduce((total, curValue) => {
+    return total + curValue;
+  });
+  return result;
 }
-console.log(palindromCheck("boy"));
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+
+
+// // // N-Task
+
+// function palindromCheck(string: string): boolean {
+//   const array: string[] = string.split("");
+//   const rever: string = array.reverse().join("");
+//   if (string !== rever) {
+//     return false;
+//   }
+
+//   return true;
+// }
+// console.log(palindromCheck("boy"));
 
 // // L-Task
 // function reverseSentence(getWords: string) {
