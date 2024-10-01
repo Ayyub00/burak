@@ -1,18 +1,34 @@
-// O-Task
-function calculateSumOfNumbers(getAny: any[]): number {
-  const numbers: number[] = [];
-  getAny.map((ele) => {
-    if (typeof ele !== "number") {
-      return ele;
-    }
-    numbers.push(ele);
-  });
-  const result: number = numbers.reduce((total, curValue) => {
-    return total + curValue;
+// P-Task
+interface Obj {
+  [key: string]: any;
+}
+function objectToArray(object: Obj) {
+  const result: any[] = [];
+  const keys = Object.keys(object);
+  const values = Object.values(object);
+  keys.map((ele, index) => {
+    const arr: Obj = [];
+    arr.push(ele, values[index]);
+    result.push(arr);
   });
   return result;
 }
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+console.log(objectToArray({ a: 10, b: 20, c: 90})); // return [['a', 10], ['b', 20]]
+// O-Task
+// function calculateSumOfNumbers(getAny: any[]): number {
+//   const numbers: number[] = [];
+//   getAny.map((ele) => {
+//     if (typeof ele !== "number") {
+//       return ele;
+//     }
+//     numbers.push(ele);
+//   });
+//   const result: number = numbers.reduce((total, curValue) => {
+//     return total + curValue;
+//   });
+//   return result;
+// }
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
 
 
 // // // N-Task
