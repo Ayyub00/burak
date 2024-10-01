@@ -19,6 +19,7 @@ import exp from "constants";
      UPDATE_FAILED = "Update is failed!",
 
      USED_NICK_PHONE = "You are insering already used nick or phone!",
+     BLOCKED_USER = "You have been blocked!",
      NO_MEMBER_NICK = "No member with that member nick!",
      WRONG_PASSWORD = "Wrong password, please try again!",
      NOT_AUTHENTICATED = "You are not authenticated, please login first!",
