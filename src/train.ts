@@ -184,4 +184,4 @@ Modern FD      => SPA  = REACT
 
 
 
-console.log(getPositive([1, -4, 2, 1]));
+// console.log(getPositive([1, -4, 2, 1]));
