@@ -127,7 +127,7 @@ public async processSignup(input: MemberInput): Promise<Member> {
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     return result;
   }
-  public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
+  public async updateChosenUser(input: MemberUpdateInput): Promise<Member[]> {
     input._id = shapeIntoMongooseObjectId(input._id);
     const result = this.memberModel.findByIdAndUpdate(
       { _id: input._id },
