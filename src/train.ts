@@ -1,19 +1,33 @@
-// P-Task
-interface Obj {
-  [key: string]: any;
+// Q-Task
+interface Object {
+  [key: string]: string;
 }
-function objectToArray(object: Obj) {
-  const result: any[] = [];
-  const keys = Object.keys(object);
-  const values = Object.values(object);
-  keys.map((ele, index) => {
-    const arr: Obj = [];
-    arr.push(ele, values[index]);
-    result.push(arr);
-  });
-  return result;
+function hasProperty(inputObject: Object, inputString: string): boolean {
+  const keys: string[] = Object.keys(inputObject);
+  if (!keys.includes(inputString)) {
+    return false;
+  } else {
+    return true;
+  }
 }
-console.log(objectToArray({ a: 10, b: 20, c: 90})); // return [['a', 10], ['b', 20]]
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+
+// // P-Task
+// interface Obj {
+//   [key: string]: any;
+// }
+// function objectToArray(object: Obj) {
+//   const result: any[] = [];
+//   const keys = Object.keys(object);
+//   const values = Object.values(object);
+//   keys.map((ele, index) => {
+//     const arr: Obj = [];
+//     arr.push(ele, values[index]);
+//     result.push(arr);
+//   });
+//   return result;
+// }
+// console.log(objectToArray({ a: 10, b: 20, c: 90})); // return [['a', 10], ['b', 20]]
 // O-Task
 // function calculateSumOfNumbers(getAny: any[]): number {
 //   const numbers: number[] = [];
