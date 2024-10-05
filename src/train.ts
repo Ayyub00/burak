@@ -1,16 +1,31 @@
+// R-Task
+function calculate(input: string): number {
+  const numberAdd: number[] = [];
+  const numbers = input.split(" ").map((num) => {
+    if (!parseInt(num)) {
+      return num;
+    }
+    return numberAdd.push(parseInt(num));
+  });
+  return numberAdd.reduce((total, num) => {
+    return total + num;
+  }, 0);
+}
+console.log(calculate("1 + 2 + 1"));
+
 // Q-Task
-interface Object {
-  [key: string]: string;
-}
-function hasProperty(inputObject: Object, inputString: string): boolean {
-  const keys: string[] = Object.keys(inputObject);
-  if (!keys.includes(inputString)) {
-    return false;
-  } else {
-    return true;
-  }
-}
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+// interface Object {
+//   [key: string]: string;
+// }
+// function hasProperty(inputObject: Object, inputString: string): boolean {
+//   const keys: string[] = Object.keys(inputObject);
+//   if (!keys.includes(inputString)) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
 
 // // P-Task
 // interface Obj {
