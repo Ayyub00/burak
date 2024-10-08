@@ -1,17 +1,32 @@
-// R-Task
-function calculate(input: string): number {
-  const numberAdd: number[] = [];
-  const numbers = input.split(" ").map((num) => {
-    if (!parseInt(num)) {
+// S-Task
+function missingNumber(numbers: number[]): number {
+  const notnum: number[] = [];
+  numbers
+    .sort((a, b) => a - b)
+    .map((num, index) => {
+      if (num !== index) {
+        notnum.push(index);
+      }
       return num;
-    }
-    return numberAdd.push(parseInt(num));
-  });
-  return numberAdd.reduce((total, num) => {
-    return total + num;
-  }, 0);
+    });
+  return notnum[0];
 }
-console.log(calculate("1 + 2 + 1"));
+console.log(missingNumber([0, 3, 1])); // return 2
+
+// R-Task
+// function calculate(input: string): number {
+//   const numberAdd: number[] = [];
+//   const numbers = input.split(" ").map((num) => {
+//     if (!parseInt(num)) {
+//       return num;
+//     }
+//     return numberAdd.push(parseInt(num));
+//   });
+//   return numberAdd.reduce((total, num) => {
+//     return total + num;
+//   }, 0);
+// }
+// console.log(calculate("1 + 2 + 1"));
 
 // Q-Task
 // interface Object {
