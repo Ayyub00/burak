@@ -1,17 +1,26 @@
-// S-Task
-function missingNumber(numbers: number[]): number {
-  const notnum: number[] = [];
-  numbers
-    .sort((a, b) => a - b)
-    .map((num, index) => {
-      if (num !== index) {
-        notnum.push(index);
-      }
-      return num;
-    });
-  return notnum[0];
+// T-Task
+function mergeSortedArrays(numbers1: number[], numbers2: number[]): number[] {
+  return numbers1.concat(numbers2).sort((a, b) => a - b);
 }
-console.log(missingNumber([0, 3, 1])); // return 2
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
+
+[0, 3, 4, 4, 6, 30, 31]
+
+
+// // S-Task
+// function missingNumber(numbers: number[]): number {
+//   const notnum: number[] = [];
+//   numbers
+//     .sort((a, b) => a - b)
+//     .map((num, index) => {
+//       if (num !== index) {
+//         notnum.push(index);
+//       }
+//       return num;
+//     });
+//   return notnum[0];
+// }
+// console.log(missingNumber([0, 3, 1])); // return 2
 
 // R-Task
 // function calculate(input: string): number {
