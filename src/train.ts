@@ -1,10 +1,36 @@
-// T-Task
-function mergeSortedArrays(numbers1: number[], numbers2: number[]): number[] {
-  return numbers1.concat(numbers2).sort((a, b) => a - b);
+// U-Task
+function sumOdds(number: number): Promise<number> {
+  const numbers: number[] = [];
+  const rnumbers: number[] = [];
+  return new Promise((resolse) => {
+    let count: number = 0;
+    const set = setInterval(() => {
+      count++;
+      numbers.push(count);
+      if (count === number) {
+        clearInterval(set);
+        numbers.map((ele) => {
+          if (ele % 2 !== 0) {
+            return rnumbers.push(ele);
+          }
+          return ele;
+        });
+        resolse(rnumbers.length - 1);
+      }
+    });
+  });
 }
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
+sumOdds(11).then((result) => {
+  console.log(result);
+}); //return 4
 
-[0, 3, 4, 4, 6, 30, 31]
+//  T-Task
+// function mergeSortedArrays(numbers1: number[], numbers2: number[]): number[] {
+//   return numbers1.concat(numbers2).sort((a, b) => a - b);
+// }
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
+
+// [0, 3, 4, 4, 6, 30, 31]
 
 
 // // S-Task
