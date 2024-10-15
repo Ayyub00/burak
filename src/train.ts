@@ -1,28 +1,45 @@
-// U-Task
-function sumOdds(number: number): Promise<number> {
-  const numbers: number[] = [];
-  const rnumbers: number[] = [];
-  return new Promise((resolse) => {
-    let count: number = 0;
-    const set = setInterval(() => {
-      count++;
-      numbers.push(count);
-      if (count === number) {
-        clearInterval(set);
-        numbers.map((ele) => {
-          if (ele % 2 !== 0) {
-            return rnumbers.push(ele);
-          }
-          return ele;
-        });
-        resolse(rnumbers.length - 1);
-      }
-    });
-  });
+// v-Task
+interface T {
+  [text: string]: number;
 }
-sumOdds(11).then((result) => {
-  console.log(result);
-}); //return 4
+function countChars(input: string) {
+  const result: T = {};
+  const text: string[] = input.split("");
+  text.map((ele, index) => {
+    if (text.indexOf(ele) === index) {
+      result[ele] = 1;
+      return result;
+    }
+    result[ele] = result[ele] + 1;
+  });
+  return result;
+}
+
+// // U-Task
+// function sumOdds(number: number): Promise<number> {
+//   const numbers: number[] = [];
+//   const rnumbers: number[] = [];
+//   return new Promise((resolse) => {
+//     let count: number = 0;
+//     const set = setInterval(() => {
+//       count++;
+//       numbers.push(count);
+//       if (count === number) {
+//         clearInterval(set);
+//         numbers.map((ele) => {
+//           if (ele % 2 !== 0) {
+//             return rnumbers.push(ele);
+//           }
+//           return ele;
+//         });
+//         resolse(rnumbers.length - 1);
+//       }
+//     });
+//   });
+// }
+// sumOdds(11).then((result) => {
+//   console.log(result);
+// }); //return 4
 
 //  T-Task
 // function mergeSortedArrays(numbers1: number[], numbers2: number[]): number[] {
