@@ -1,19 +1,37 @@
-// v-Task
-interface T {
-  [text: string]: number;
-}
-function countChars(input: string) {
-  const result: T = {};
-  const text: string[] = input.split("");
-  text.map((ele, index) => {
-    if (text.indexOf(ele) === index) {
-      result[ele] = 1;
-      return result;
+// W-Task
+
+function chunkArray(numbers: number[], num: number) {
+  const flex: number = parseInt(`${numbers.length / num}`);
+  const result: any = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers.length > flex) {
+      result.push(numbers.slice(0, flex));
+      numbers.splice(0, flex);
     }
-    result[ele] = result[ele] + 1;
-  });
+  }
+  result.push(numbers.slice(0, numbers.length));
+
   return result;
 }
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
+
+// v-Task
+// interface T {
+//   [text: string]: number;
+// }
+// function countChars(input: string) {
+//   const result: T = {};
+//   const text: string[] = input.split("");
+//   text.map((ele, index) => {
+//     if (text.indexOf(ele) === index) {
+//       result[ele] = 1;
+//       return result;
+//     }
+//     result[ele] = result[ele] + 1;
+//   });
+//   return result;
+// }
 
 // // U-Task
 // function sumOdds(number: number): Promise<number> {
