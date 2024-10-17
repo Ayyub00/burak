@@ -23,6 +23,7 @@ import exp from "constants";
      NO_MEMBER_NICK = "No member with that member nick!",
      WRONG_PASSWORD = "Wrong password, please try again!",
      NOT_AUTHENTICATED = "You are not authenticated, please login first!",
+     TOKEN_CREATION_FAILED = "Token creation error!",
 
  }
 
