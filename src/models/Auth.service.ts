@@ -1,6 +1,6 @@
+import { Member } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { AUTH_TIMER } from "../libs/config";
-import { Member } from "../libs/types/member";
 import jwt from "jsonwebtoken";
 
 class AuthService {
@@ -27,6 +27,13 @@ class AuthService {
         }
       );
     });
+  }
+  public async checkAuth(token: string) {
+    const result: Member = (await jwt.verify(
+      token,
+      this.secretToken
+    )) as Member;
+    console.log(`--- [AUTH] memberNick: ${result.memberNick} ---`)
   }
 }
 

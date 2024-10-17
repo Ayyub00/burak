@@ -9,8 +9,12 @@ import express from "express";
 //  router.get("/singup", memberController.getSignup);
 
 
-router.post("/login", memberController.login);
+// Member
+router.post("/member/login", memberController.login);
+router.post("/member/signup", memberController.signup);
+router.get("/member/detail", memberController.verifyAuth);
 
-router.post("/signup", memberController.signup );
+
+// / Product */
 
  export default router;
