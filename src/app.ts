@@ -8,6 +8,7 @@ import express from "express";
  import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from "./libs/types/common";
+import cookieParser from "cookie-parser";
 
 const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
@@ -22,6 +23,7 @@ const store = new MongoDBStore({
  app.use(express.static(path.join(__dirname, "public"))); // static, use, express- bular methods, public folderni tashqi olip chiqish
  app.use(express.urlencoded({ extended: true }));
  app.use(express.json());
+ app.use(cookieParser());
  app.use(morgan(MORGAN_FORMAT));
 
  /** 2 - SESSIONS **/
