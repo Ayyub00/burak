@@ -29,6 +29,12 @@ import { Session } from "express-session";
   memberImage?: string;
 }
 
+export interface ExtendedRequest extends Request {
+  member: Member;
+  file: Express.Multer.File;
+  files: Express.Multer.File[];
+}
+
  export interface MemberInput {
      memberType?: MemberType;
      memberStatus?: MemberStatus;
