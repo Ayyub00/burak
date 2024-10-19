@@ -36,7 +36,7 @@ class MemberService {
    }
  }
 
- public async login(input: LoginInput): Promise<Member | null> {
+ public async login(input: LoginInput): Promise<Member> {
    //TODO: consider member status later 
 
    const member = await this.memberModel
@@ -80,6 +80,7 @@ class MemberService {
 
 
    return result;
+ }
 
 
 
@@ -154,5 +155,6 @@ public async processSignup(input: MemberInput): Promise<Member> {
     return result;
   }
 }
+
 
 export default MemberService;

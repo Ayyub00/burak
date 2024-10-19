@@ -67,7 +67,7 @@ import { MemberInput, Member, LoginInput, ExtendedRequest } from "../libs/types/
   } catch(err) {
     console.log("Error, logout:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
-    else res.status(Errors.standard.code).json(Errors.standard);
+    else res.status(Errors.standart.code).json(Errors.standart);
   }
 }
 
@@ -81,7 +81,7 @@ memberController.getMemberDetail = async (req: ExtendedRequest, res: Response) =
   } catch(err) {
     console.log("Error, logout:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
-    else res.status(Errors.standard.code).json(Errors.standard);
+    else res.status(Errors.standart.code).json(Errors.standart);
   }
 }
 
