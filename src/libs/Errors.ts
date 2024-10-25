@@ -31,7 +31,7 @@ import exp from "constants";
      public code: HttpCode;
      public message: Message;
 
-     static standart = {
+     static standard = {
         code: HttpCode.INTERNAL_SERVER_ERROR,
         message: Message.SOMETHING_WENT_WRONG,
       };

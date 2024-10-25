@@ -1,19 +1,22 @@
+
+
+
 // W-Task
 
-function chunkArray(numbers: number[], num: number) {
-  const flex: number = parseInt(`${numbers.length / num}`);
-  const result: any = [];
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers.length > flex) {
-      result.push(numbers.slice(0, flex));
-      numbers.splice(0, flex);
-    }
-  }
-  result.push(numbers.slice(0, numbers.length));
+// function chunkArray(numbers: number[], num: number) {
+//   const flex: number = parseInt(`${numbers.length / num}`);
+//   const result: any = [];
+//   for (let i = 0; i < numbers.length; i++) {
+//     if (numbers.length > flex) {
+//       result.push(numbers.slice(0, flex));
+//       numbers.splice(0, flex);
+//     }
+//   }
+//   result.push(numbers.slice(0, numbers.length));
 
-  return result;
-}
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+//   return result;
+// }
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
 
 // v-Task

@@ -1,6 +1,8 @@
 import express from "express";
  const router = express.Router();
  import memberController from "./controllers/member.controller";
+ import { v4 } from "uuid";
+import uploader from "./libs/utils/uploader";
 
 //  router.get("/", memberController.goHome);
 
@@ -21,6 +23,13 @@ router.post(
     "/member/detail",
     memberController.verifyAuth,
     memberController.getMemberDetail
+  );
+
+  router.post(
+    "/member/update",
+    memberController.verifyAuth,
+    uploader("members").single("memberImage"),
+    memberController.updateMember
   );
 
 
