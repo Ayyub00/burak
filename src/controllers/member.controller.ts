@@ -12,6 +12,7 @@ import {
   ExtendedRequest,
   MemberUpdateInput,
 } from "../libs/types/member";
+import productController from "./product.controller";
 
  const  memberService = new MemberService();
  const authService = new AuthService();

@@ -3,6 +3,7 @@ import express from "express";
  import memberController from "./controllers/member.controller";
  import { v4 } from "uuid";
 import uploader from "./libs/utils/uploader";
+import productController from "./controllers/product.controller";
 
 //  router.get("/", memberController.goHome);
 
@@ -36,5 +37,7 @@ router.post(
 
 
 // / Product */
+
+router.get("/product/all", productController.getProducts);
 
  export default router;

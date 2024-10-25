@@ -36,7 +36,7 @@ const store = new MongoDBStore({
             maxAge: 1000 * 3600 * 3 // 3h
         },
         store: store,
-        resave: false,  // 10:30 => 13:30   12:00 => 15:00
+        resave: true,  // 10:30 => 13:30   12:00 => 15:00
         saveUninitialized: true
     })
 );
