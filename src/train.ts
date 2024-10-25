@@ -1,4 +1,11 @@
-
+// TASK X 
+function countOccurrences(object: object, string: string) {
+  let stringcount = 0
+  for ()
+}
+  
+  
+    console.log(countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'));
 
 
 // W-Task
