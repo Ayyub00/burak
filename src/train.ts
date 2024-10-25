@@ -1,11 +1,30 @@
-// TASK X 
-function countOccurrences(object: object, string: string) {
-  let stringcount = 0
-  for ()
-}
-  
-  
-    console.log(countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'));
+// // TASK X
+// function countOccurrences(object: object, string: string) {
+//   const result: string[] = [];
+//   const keys = Object.keys(object).concat(Object.values(object));
+//   keys.map((ele) => {
+//     if (typeof ele === "string") {
+//       if (ele === string) {
+//         return result.push(ele);
+//       }
+//       return ele;
+//     }
+//     return Object.keys(ele).map((ele) => {
+//       if (ele === string) {
+//         return result.push(ele);
+//       }
+//       return ele;
+//     });
+//   }); return result.length;
+// }
+
+// console.log(
+//   countOccurrences(
+//     { model: "Bugatti", steer: { model: "HANKOOK", size: 30 }},
+//     "model"
+//   )
+// );
+
 
 
 // W-Task
