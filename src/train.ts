@@ -1,3 +1,15 @@
+// Task Y
+
+function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
+  
+  const intersection = arr1.filter(value => arr2.includes(value));
+  return intersection;
+}
+
+
+const result = findIntersection<number>([1, 2, 3], [3, 2, 0]);
+console.log(result); // [2, 3]
+
 // // TASK X
 // function countOccurrences(object: object, string: string) {
 //   const result: string[] = [];
