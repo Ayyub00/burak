@@ -156,7 +156,7 @@ memberController.verifyAuth = async (
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
-memberController.retrieveAuth = async (
+memberController.retriveAuth = async (
   req: ExtendedRequest,
   res: Response,
   next: NextFunction
@@ -167,7 +167,7 @@ memberController.retrieveAuth = async (
 
     next();
   } catch (err) {
-    console.log("Error, retrieveAuth:", err);
+    console.log("Error, retriveAuth:", err);
     next();
   }
 };
