@@ -40,7 +40,7 @@ public async getRestaurant(): Promise<Member> {
    try {
      const result = await this.memberModel.create(input);
      result.memberPassword = "";  // Parolni javobdan olib tashlash
-     return result.toJSON() as Member;// JSON formatida qaytarish
+     return result.toJSON() as unknown as Member;// JSON formatida qaytarish
    } catch (err) {
      console.error("Error , model:signup ", err);
      throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
@@ -119,6 +119,22 @@ public async getTopUsers(): Promise<Member[]> {
 
   console.log("result: ", result);
   return result;
+}
+
+public async addUserPoint(member: Member, point: number): Promise<Member> {
+  const memberId = shapeIntoMongooseObjectId(member._id);
+
+  return await this.memberModel
+    .findOneAndUpdate(
+      {
+        _id: memberId,
+        memberType: MemberType.USER,
+        memberStatus: MemberStatus.ACTIVE,
+      },
+      { $inc: { memberPoints: point } },
+      { new: true }
+    )
+    .exec();
 }
 
 
