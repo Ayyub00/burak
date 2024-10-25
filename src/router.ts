@@ -12,6 +12,7 @@ import uploader from "./libs/utils/uploader";
 
 
 // Member
+router.get("/member/top-users", memberController.getTopUsers);
 router.post("/member/login", memberController.login);
 router.post("/member/signup", memberController.signup);
 router.post(
