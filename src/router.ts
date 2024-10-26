@@ -42,7 +42,7 @@ router.post(
 router.get("/product/all", productController.getProducts);
 router.get(
   "/product/:id",
-  memberController.retrieveAuth,
+  memberController.retriveAuth,
   productController.getProduct
 );
 

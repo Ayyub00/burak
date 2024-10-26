@@ -2,7 +2,7 @@ import { Order, OrderInquiry, OrderItemInput, OrderUpdateInput } from "../libs/t
 import { Member } from "../libs/types/member";
 import OrderModel from "../schema/0rder.model";
 import OrderItemModel from "../schema/OrderItem.model";
-import { shapeIntoMongooseObjectId } from "../libs/config";
+import { shapeIntoMongooseObjectId } from "../libs/types/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { ObjectId } from "mongoose";
 import { OrderStatus } from "../libs/enums/order.enum";
