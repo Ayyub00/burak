@@ -1,12 +1,22 @@
-// TASK ZA 
-interface Person {
-  age: number;
+// TASK ZB 
+function randomBetween(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
-  function sortByAge(arr: Person[]): Person[] {
-    return [...arr].sort((a: Person, b: Person) => a.age - b.age);
-  }
+  console.log(randomBetween(30, 50));
+
+
   
-  console.log(sortByAge([{age: 23}, {age: 21}, {age: 13}])); 
+
+
+// TASK ZA 
+// interface Person {
+//   age: number;
+// }
+//   function sortByAge(arr: Person[]): Person[] {
+//     return [...arr].sort((a: Person, b: Person) => a.age - b.age);
+//   }
+  
+//   console.log(sortByAge([{age: 23}, {age: 21}, {age: 13}])); 
   
   
   
