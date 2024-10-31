@@ -1,14 +1,39 @@
+// TASK ZA 
+interface Person {
+  age: number;
+}
+  function sortByAge(arr: Person[]): Person[] {
+    return [...arr].sort((a: Person, b: Person) => a.age - b.age);
+  }
+  
+  console.log(sortByAge([{age: 23}, {age: 21}, {age: 13}])); 
+  
+  
+  
+  // // TASK Z
+  // function sumEvens(numbers: number[]): number {
+  //   let sum: number = 0;
+  //   for (let i: number = 0; i < numbers.length; i++) {
+  //     if (numbers[i] % 2 === 0) {
+  //       sum += numbers[i];
+  //     }
+  //   }
+  //   return sum;
+  // }
+  
+  // console.log(sumEvens([1, 2, 3]));
+
 // Task Y
 
-function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
+// function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
   
-  const intersection = arr1.filter(value => arr2.includes(value));
-  return intersection;
-}
+//   const intersection = arr1.filter(value => arr2.includes(value));
+//   return intersection;
+// }
 
 
-const result = findIntersection<number>([1, 2, 3], [3, 2, 0]);
-console.log(result); // [2, 3]
+// const result = findIntersection<number>([1, 2, 3], [3, 2, 0]);
+// console.log(result); // [2, 3]
 
 // // TASK X
 // function countOccurrences(object: object, string: string) {
