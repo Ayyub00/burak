@@ -1,8 +1,45 @@
-// TASK ZB 
-function randomBetween(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+//Task: ZC
+/*
+function convertCelsiusToFahrenheit(selisy: number): number {
+  const result =(selisy * 9 / 5) + 32;
+
+  return result;
 }
-  console.log(randomBetween(30, 50));
+
+console.log(convertCelsiusToFahrenheit(0));
+console.log(convertCelsiusToFahrenheit(10)); */
+
+//Task: ZD
+/*
+function changeNumberInArray(index: number, array: number[], newValue: number) {
+  if (index >= 0 && index < array.length) {
+    array[index] = newValue;
+  }
+  return array;
+}
+
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); */
+
+//Task: ze
+// Task
+function removeDuplicate(one: string): string {
+  const result: string[] = [];
+  const arr: string[] = one.split("");
+  arr.map((e, index) => {
+    if (arr.indexOf(e) === index) {
+      return result.push(e);
+    }
+    return e;
+  });
+  return result.join("");
+}
+console.log(removeDuplicate("stringg"));
+
+// TASK ZB 
+// function randomBetween(min: number, max: number): number {
+//   return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+//   console.log(randomBetween(30, 50));
 
 
   
