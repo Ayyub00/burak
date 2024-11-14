@@ -1,3 +1,14 @@
+//task zg
+
+function convertToSnakeCase(input: string): string {
+  return input
+      .toLowerCase()              // Convert all letters to lowercase
+      .replace(/\s+/g, '_');       // Replace spaces with underscores
+}
+
+// Example usage:
+console.log(convertToSnakeCase('name should be a string')); // Output: 'name_should_be_a_string'
+
 //Task: ZC
 /*
 function convertCelsiusToFahrenheit(selisy: number): number {
