@@ -1,13 +1,38 @@
-//task zg
+// TASK ZH
 
-function convertToSnakeCase(input: string): string {
-  return input
-      .toLowerCase()              // Convert all letters to lowercase
-      .replace(/\s+/g, '_');       // Replace spaces with underscores
+function findDisappearedNumbers(arr: number[]): number[] {
+  // Massivning eng kichik va eng katta qiymatlarini aniqlash
+  const min: number = Math.min(...arr);
+  const max: number = Math.max(...arr);
+
+  // Natija massivini yaratish
+  const missingNumbers: number[] = [];
+
+
+  for (let i = min; i <= max; i++) {
+      if (!arr.includes(i)) {
+          missingNumbers.push(i); 
+      }
+  }
+
+  return missingNumbers;
 }
 
-// Example usage:
-console.log(convertToSnakeCase('name should be a string')); // Output: 'name_should_be_a_string'
+
+const result = findDisappearedNumbers([1, 3, 4, 7]);
+console.log(result); // [2, 5, 6]
+
+
+//task zg
+
+// function convertToSnakeCase(input: string): string {
+//   return input
+//       .toLowerCase()              // Convert all letters to lowercase
+//       .replace(/\s+/g, '_');       // Replace spaces with underscores
+// }
+
+// // Example usage:
+// console.log(convertToSnakeCase('name should be a string')); // Output: 'name_should_be_a_string'
 
 //Task: ZC
 /*

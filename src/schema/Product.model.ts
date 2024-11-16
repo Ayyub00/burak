@@ -53,7 +53,7 @@ const productSchema = new Schema(
       default: 0,
     },
   },
-  { timestamps: true, collection: "member" } // uptatedAt, cretedAt 
+  { timestamps: true } // uptatedAt, cretedAt 
 );
 productSchema.index(
   { productName: 1, ProductSize: 1, ProductVolume: 1 },
