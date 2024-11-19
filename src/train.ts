@@ -1,22 +1,38 @@
+// TASK ZI
+
+function delayHelloWorld(message: string): Promise<string> {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+          resolve(message);
+      }, 3000); 
+  });
+}
+
+
+delayHelloWorld("Hello World!")
+  .then((result: string) => {
+      console.log(result); 
+  });
+
 // TASK ZH
 
-function findDisappearedNumbers(arr: number[]): number[] {
-  // Massivning eng kichik va eng katta qiymatlarini aniqlash
-  const min: number = Math.min(...arr);
-  const max: number = Math.max(...arr);
+// function findDisappearedNumbers(arr: number[]): number[] {
+//   // Massivning eng kichik va eng katta qiymatlarini aniqlash
+//   const min: number = Math.min(...arr);
+//   const max: number = Math.max(...arr);
 
   // Natija massivini yaratish
-  const missingNumbers: number[] = [];
+//   const missingNumbers: number[] = [];
 
 
-  for (let i = min; i <= max; i++) {
-      if (!arr.includes(i)) {
-          missingNumbers.push(i); 
-      }
-  }
+//   for (let i = min; i <= max; i++) {
+//       if (!arr.includes(i)) {
+//           missingNumbers.push(i); 
+//       }
+//   }
 
-  return missingNumbers;
-}
+//   return missingNumbers;
+// }
 
 
 const result = findDisappearedNumbers([1, 3, 4, 7]);
