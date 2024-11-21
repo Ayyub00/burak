@@ -1,18 +1,37 @@
-// TASK ZI
+//task zj
 
-function delayHelloWorld(message: string): Promise<string> {
-  return new Promise((resolve) => {
-      setTimeout(() => {
-          resolve(message);
-      }, 3000); 
-  });
+function reduceNestedArray(arr: any[]): number {
+  return arr.reduce((sum, item) => {
+    if (Array.isArray(item)) {
+      // If the item is an array, recursively calculate its sum
+      return sum + reduceNestedArray(item);
+    } else if (typeof item === "number") {
+      // If the item is a number, add it to the sum
+      return sum + item;
+    }
+    return sum; // Ignore non-numeric values
+  }, 0);
 }
 
+// Example usage:
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
 
-delayHelloWorld("Hello World!")
-  .then((result: string) => {
-      console.log(result); 
-  });
+
+// TASK ZI
+
+// function delayHelloWorld(message: string): Promise<string> {
+//   return new Promise((resolve) => {
+//       setTimeout(() => {
+//           resolve(message);
+//       }, 3000); 
+//   });
+// }
+
+
+// delayHelloWorld("Hello World!")
+//   .then((result: string) => {
+//       console.log(result); 
+//   });
 
 // TASK ZH
 
@@ -35,8 +54,8 @@ delayHelloWorld("Hello World!")
 // }
 
 
-const result = findDisappearedNumbers([1, 3, 4, 7]);
-console.log(result); // [2, 5, 6]
+// const result = findDisappearedNumbers([1, 3, 4, 7]);
+// console.log(result); // [2, 5, 6]
 
 
 //task zg
