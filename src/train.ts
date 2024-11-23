@@ -1,20 +1,37 @@
-//task zj
+// TASK ZK
 
-function reduceNestedArray(arr: any[]): number {
-  return arr.reduce((sum, item) => {
-    if (Array.isArray(item)) {
-      // If the item is an array, recursively calculate its sum
-      return sum + reduceNestedArray(item);
-    } else if (typeof item === "number") {
-      // If the item is a number, add it to the sum
-      return sum + item;
-    }
-    return sum; // Ignore non-numeric values
-  }, 0);
+function printNumbers(): void {
+  let number: number = 1; // Boshlang'ich raqam
+  const interval: NodeJS.Timeout = setInterval(() => {
+      console.log(number); // Raqamni konsolga chiqarish
+      number++; // Raqamni oshirish
+      if (number > 5) { // Agar raqam 5 dan oshsa, intervalni to'xtatish
+          clearInterval(interval);
+      }
+  }, 1000); // Har bir soniyada ishga tushirish
 }
 
+printNumbers();
+
+
+
+//task zj
+
+// function reduceNestedArray(arr: any[]): number {
+//   return arr.reduce((sum, item) => {
+//     if (Array.isArray(item)) {
+//       // If the item is an array, recursively calculate its sum
+//       return sum + reduceNestedArray(item);
+//     } else if (typeof item === "number") {
+//       // If the item is a number, add it to the sum
+//       return sum + item;
+//     }
+//     return sum; // Ignore non-numeric values
+//   }, 0);
+// }
+
 // Example usage:
-console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
+// console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
 
 
 // TASK ZI
