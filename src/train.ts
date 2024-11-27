@@ -1,17 +1,28 @@
-// TASK ZK
+// TASK ZM
 
-function printNumbers(): void {
-  let number: number = 1; // Boshlang'ich raqam
-  const interval: NodeJS.Timeout = setInterval(() => {
-      console.log(number); // Raqamni konsolga chiqarish
-      number++; // Raqamni oshirish
-      if (number > 5) { // Agar raqam 5 dan oshsa, intervalni to'xtatish
-          clearInterval(interval);
-      }
-  }, 1000); // Har bir soniyada ishga tushirish
+function reverseInteger(num: number): number {
+  const reversed = num.toString().split('').reverse().join('');
+  return parseInt(reversed) * Math.sign(num);
 }
 
-printNumbers();
+// Misol uchun chaqirish:
+console.log(reverseInteger(123456789)); // Natija: 987654321
+console.log(reverseInteger(-98765));    // Natija: -56789
+
+// TASK ZK
+
+// function printNumbers(): void {
+//   let number: number = 1; // Boshlang'ich raqam
+//   const interval: NodeJS.Timeout = setInterval(() => {
+//       console.log(number); // Raqamni konsolga chiqarish
+//       number++; // Raqamni oshirish
+//       if (number > 5) { // Agar raqam 5 dan oshsa, intervalni to'xtatish
+//           clearInterval(interval);
+//       }
+//   }, 1000); // Har bir soniyada ishga tushirish
+// }
+
+// printNumbers();
 
 
 
