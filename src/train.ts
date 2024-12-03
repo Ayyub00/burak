@@ -1,13 +1,32 @@
-// TASK ZM
+// TASK ZN
 
-function reverseInteger(num: number): number {
-  const reversed = num.toString().split('').reverse().join('');
-  return parseInt(reversed) * Math.sign(num);
+function rotateArray<T>(arr: T[], index: number): T[] {
+  if (index < 0 || index >= arr.length) {
+    throw new Error("Index is out of bounds.");
+  }
+
+  const firstPart: T[] = arr.slice(index + 1); // Indeksdan keyingi qism
+  const secondPart: T[] = arr.slice(0, index + 1); // Indeksgacha bo'lgan qism
+
+  return [...firstPart, ...secondPart]; // Qismlarni birlashtirish
 }
 
-// Misol uchun chaqirish:
-console.log(reverseInteger(123456789)); // Natija: 987654321
-console.log(reverseInteger(-98765));    // Natija: -56789
+// Misol:
+const result = rotateArray<number>([1, 2, 3, 4, 5, 6], 3);
+console.log(result); // [5, 6, 1, 2, 3, 4]
+
+
+
+// TASK ZM
+
+// function reverseInteger(num: number): number {
+//   const reversed = num.toString().split('').reverse().join('');
+//   return parseInt(reversed) * Math.sign(num);
+// }
+
+// // Misol uchun chaqirish:
+// console.log(reverseInteger(123456789)); // Natija: 987654321
+// console.log(reverseInteger(-98765));    // Natija: -56789
 
 // TASK ZK
 
