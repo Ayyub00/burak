@@ -1,19 +1,46 @@
-// TASK ZN
+// TASK 
 
-function rotateArray<T>(arr: T[], index: number): T[] {
-  if (index < 0 || index >= arr.length) {
-    throw new Error("Index is out of bounds.");
+function areArraysEqual<T>(arr1: T[], arr2: T[]): boolean {
+  // Ikkala arrayni tartibga keltiramiz
+  const sortedArr1 = [...arr1].sort();
+  const sortedArr2 = [...arr2].sort();
+
+  // Uzunliklarni tekshirish
+  if (sortedArr1.length !== sortedArr2.length) {
+      return false;
   }
 
-  const firstPart: T[] = arr.slice(index + 1); // Indeksdan keyingi qism
-  const secondPart: T[] = arr.slice(0, index + 1); // Indeksgacha bo'lgan qism
+  // Elementlarni tekshirish
+  for (let i = 0; i < sortedArr1.length; i++) {
+      if (sortedArr1[i] !== sortedArr2[i]) {
+          return false;
+      }
+  }
 
-  return [...firstPart, ...secondPart]; // Qismlarni birlashtirish
+  return true;
 }
 
+// Misollar
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2])); // true
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1])); // false
+console.log(areArraysEqual([1, 2, 3], [4, 1, 2])); // false
+
+// TASK ZN
+
+// function rotateArray<T>(arr: T[], index: number): T[] {
+//   if (index < 0 || index >= arr.length) {
+//     throw new Error("Index is out of bounds.");
+//   }
+
+//   const firstPart: T[] = arr.slice(index + 1); // Indeksdan keyingi qism
+//   const secondPart: T[] = arr.slice(0, index + 1); // Indeksgacha bo'lgan qism
+
+//   return [...firstPart, ...secondPart]; // Qismlarni birlashtirish
+// }
+
 // Misol:
-const result = rotateArray<number>([1, 2, 3, 4, 5, 6], 3);
-console.log(result); // [5, 6, 1, 2, 3, 4]
+// const result = rotateArray<number>([1, 2, 3, 4, 5, 6], 3);
+// console.log(result); // [5, 6, 1, 2, 3, 4]
 
 
 
