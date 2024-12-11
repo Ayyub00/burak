@@ -1,25 +1,52 @@
-// TAsk Zq
-
-function findDuplicates(arr: number[]): number[] {
-  const duplicates: number[] = [];
-  const seen: Set<number> = new Set();
-
-  for (const num of arr) {
-      if (seen.has(num)) {
-          if (!duplicates.includes(num)) {
-              duplicates.push(num);
-          }
-      } else {
-          seen.add(num);
-      }
-  }
-  
-  return duplicates;
+// TASK ZR 
+interface CharacterCount {
+  number: number;
+  letter: number;
 }
 
-// Misol uchun
-const result = findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]);
-console.log(result); // Natija: [3, 4]
+function countNumberAndLetters(str: string): CharacterCount {
+  const result: CharacterCount = {
+    number: 0,
+    letter: 0
+  };
+
+  for (const char of str) {
+    if (/[0-9]/.test(char)) {
+      result.number++;
+    }
+    else if (/[a-zA-Z]/.test(char)) {
+      result.letter++;
+    }
+  }
+
+  return result;
+}
+
+console.log(countNumberAndLetters("string152%\¥"));
+
+
+// TAsk Zq
+
+// function findDuplicates(arr: number[]): number[] {
+//   const duplicates: number[] = [];
+//   const seen: Set<number> = new Set();
+
+//   for (const num of arr) {
+//       if (seen.has(num)) {
+//           if (!duplicates.includes(num)) {
+//               duplicates.push(num);
+//           }
+//       } else {
+//           seen.add(num);
+//       }
+//   }
+  
+//   return duplicates;
+// }
+
+// // Misol uchun
+// const result = findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]);
+// console.log(result); // Natija: [3, 4]
 
 
 // TASK 
